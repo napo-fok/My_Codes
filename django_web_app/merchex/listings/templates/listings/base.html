@@ -2,6 +2,13 @@
 <html>
     <head><title>Merchex</title></head>
     <link rel="stylesheet" href="{% static 'listings/style.css' %}" />
+    <nav>
+        <a href="{% url 'band-list' %}">Groupes</a>
+        <a href="{% url 'listing-list' %}">Listings</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+        <a href="{% url 'about' %}">About Us</a>
+    </nav>
+    
     <body>
 
         {% block content %}{% endblock %}
