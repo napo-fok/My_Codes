@@ -5,8 +5,11 @@
     
     <ul>
         {% for lis in lists %}
-        <li><a href="{% url 'listing-detail' lis.id %}"> {{ lis.title|upper }}</a></li>
+        <li><a href="{% url 'listing-detail' lis.id %}"> {{ lis.title|upper }}</a>
+            - <a href="{% url 'listing-update' lis.id %}">[Editer]</a></li>
         {% endfor %}
     </ul>
+
+    <p><a href="{% url 'listing-create' %}"> Add a New Listing </a></p>
     
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "listings/base.html" %}
+
+{% block content %}
+        <h1>Merci de votre Confiance</h1>
+        <p>Do you really want to delete : {{ lis.title | upper }} ?</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            
+            <input type="submit" value="Supprimer">
+        </form>
+
+{% endblock%}

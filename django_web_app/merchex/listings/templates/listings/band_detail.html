@@ -17,11 +17,12 @@
     <p>{{ band.biography }}</p>
 
     <p>
-        
-        <a href="{% url 'listing-list-group' band.id %}">Listings du groupe</a>
+        <a href="{% url 'band-update' band.id %}">Mettre à jour le groupe - </a>
+        <a href="{% url 'listing-list-group' band.id %}">Listings du groupe - </a>
+        <a href="{% url 'band-list' %}">Retour à tous les groupes - </a>
+        <a href="{% url 'band-delete' band.id %}">Supprimer le groupe</a>
     </p>
-
-    <a href="{% url 'band-list' %}">Retour à tous les groupes</a>
+    
 
 {% endblock %}
 

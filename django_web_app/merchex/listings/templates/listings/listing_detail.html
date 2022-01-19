@@ -14,7 +14,11 @@
 
     <p>{{ lis.description }}</p>
 
-    <a href="{% url 'listing-list' %}">Retour à tous les listings</a>
+    <p>
+        <a href="{% url 'listing-list' %}">Retour à tous les listings - </a> 
+        <a href="{% url 'listing-update' lis.id %}">Mettre à jour l'annonce - </a>
+        <a href="{% url 'listing-delete' lis.id %}">Supprimer cette annonce</a>
+    </p>
 
 {% endblock %}
 

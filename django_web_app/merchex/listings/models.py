@@ -15,8 +15,9 @@ class Band(models.Model):
         HIP_HOP = 'HH'
         SYNTH_POP = 'SP'
         ALTERNATIVE_ROCK = 'AR'
+        POP_MUSIC = 'POP'
 
-    class type(models.TextChoices):
+    class Type(models.TextChoices):
         RECORDS = 'REC'
         CLOTHING = 'CLO'
         POSTERS = 'POS'
@@ -29,10 +30,6 @@ class Band(models.Model):
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
     description = models.fields.CharField(max_length=500, default='Classic Music')
-    sold = models.fields.BooleanField(default=False)
-    year = models.fields.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2021)], default=1915)
-    type = models.fields.CharField(choices=type.choices, max_length=5, default='REC')
-
 
 
 class Listing(models.Model):
@@ -40,7 +37,7 @@ class Listing(models.Model):
     def __str__(self) -> str:
         return f'{self.title}'
 
-    class type(models.TextChoices):
+    class Type(models.TextChoices):
         RECORDS = 'REC'
         CLOTHING = 'CLO'
         POSTERS = 'POS'
@@ -51,7 +48,7 @@ class Listing(models.Model):
     description = models.fields.CharField(max_length=500, default='Pop Music')
     sold = models.fields.BooleanField(default=False)
     year = models.fields.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2021)], default=1915)
-    type = models.fields.CharField(choices=type.choices, max_length=5, default='MIS')
+    type = models.fields.CharField(choices=Type.choices, max_length=5, default='MIS')
 
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
 
